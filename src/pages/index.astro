@@ -1,11 +1,36 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
 ---
-
-<Layout>
-	<Welcome />
-</Layout>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matias Azcurra | Software Engineer</title>
+  <meta name="description" content="Portfolio de Matias Azcurra, Software Engineer especializado en Python, desarrollo web y automatización. Mendoza, Argentina." />
+  <meta property="og:title" content="Matias Azcurra | Software Engineer" />
+  <meta property="og:description" content="Desarrollo software y soluciones a medida que resuelven problemas reales." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+</head>
+<body>
+  <Nav />
+  <Hero />
+  <About />
+  <Skills />
+  <Projects />
+  <Contact />
+  <Footer />
+  <script src="/main.js" is:inline></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+---
+const skills = [
+  {
+    icon: "devicon-python-plain colored",
+    name: "Python",
+    desc: "Automatización, desarrollo de aplicaciones, scripts, procesamiento de datos y conexión con bases de datos.",
+  },
+  {
+    icon: "devicon-html5-plain colored",
+    name: "Desarrollo Web",
+    desc: "HTML, CSS, JavaScript — interfaces funcionales, responsivas y bien estructuradas.",
+  },
+  {
+    icon: "devicon-react-original colored",
+    name: "React",
+    desc: "Desarrollo de interfaces dinámicas con componentes reutilizables, estados y consumo de datos.",
+  },
+  {
+    icon: "devicon-mysql-plain colored",
+    name: "Bases de Datos",
+    desc: "MySQL, PostgreSQL y SQL: diseño, consultas, normalización, modelado y optimización.",
+  },
+  {
+    icon: "devicon-astro-plain colored",
+    name: "Astro",
+    desc: "Creación de sitios web rápidos y optimizados, combinando componentes modernos con excelente rendimiento.",
+  },
+  {
+    icon: "devicon-pycharm-plain colored",
+    name: "Desarrollo de Software",
+    desc: "Análisis, diseño e implementación de aplicaciones integrando frontend, backend, Python, PySide6 y bases de datos.",
+  },
+];
+---
+<section id="skills">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="section-label reveal">Mis Habilidades</p>
+    <h2 class="section-title reveal">Lo que puedo utilizar</h2>
+    <p class="section-sub reveal">Tecnologías y herramientas con las que trabajo en proyectos reales.</p>
+
+    <div class="skills-grid">
+      {skills.map((skill) => (
+        <div class="skill-card">
+          <div class="skill-icon"><i class={skill.icon}></i></div>
+          <div class="skill-name">{skill.name}</div>
+          <div class="skill-desc">{skill.desc}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

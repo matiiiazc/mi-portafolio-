@@ -1,0 +1,88 @@
+---
+import '../styles/global.css';
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Página no encontrada | Matias Azcurra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="not-found">
+    <div class="code-block">
+      <span class="line"><span class="kw">def</span> <span class="fn">find_page</span>(url):</span>
+      <span class="line">&nbsp;&nbsp;<span class="kw">raise</span> <span class="err">PageNotFoundError</span>(</span>
+      <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="str">"Esta página no existe"</span></span>
+      <span class="line">&nbsp;&nbsp;)</span>
+      <span class="line">&nbsp;</span>
+      <span class="line"><span class="comment"># Error 404 — pero mi portfolio sí existe 👇</span></span>
+    </div>
+    <h1>404</h1>
+    <p>Esta página no existe, pero mi portfolio sí.</p>
+    <a href="/" class="btn-primary">Volver al inicio</a>
+  </div>
+</body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg, #0e0e0e);
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  .not-found {
+    text-align: center;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .code-block {
+    background: #1a1a2e;
+    border-radius: 12px;
+    padding: 20px 28px;
+    text-align: left;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.9;
+    border: 1px solid #2a2a4a;
+    display: flex;
+    flex-direction: column;
+  }
+  .line { display: block; }
+  .kw { color: #c792ea; }
+  .fn { color: #82aaff; }
+  .str { color: #c3e88d; }
+  .err { color: #ff5370; }
+  .comment { color: #546e7a; }
+  h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #6c63ff;
+    margin: 0;
+    line-height: 1;
+  }
+  p {
+    color: #888;
+    font-size: 1.1rem;
+    margin: 0;
+  }
+  .btn-primary {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #6c63ff;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #574fd6; }
+</style>

@@ -1,0 +1,115 @@
+---
+const projects = [
+  {
+    images: [
+      "/imagenes/proyecto1-1.png",
+      "/imagenes/proyecto1-2.png",
+      "/imagenes/proyecto1-3.png",
+    ],
+    tags: ["Python", "MySQL", "PySide6"],
+    title: "Aplicación Intermedios",
+    desc: "Sistema de gestión integral para una empresa: control de pagos a empleados, gastos de materiales y administración de clientes y proveedores.",
+    metrics: [
+      { value: "3", label: "módulos integrados" },
+      { value: "100%", label: "procesos digitalizados" },
+      { value: "0", label: "planillas de Excel reemplazadas" },
+    ],
+    github: "https://github.com/matiiiazc/App_Gestion_Intermedios.git",
+  },
+  {
+    images: [
+      "/imagenes/proyecto2-1.png",
+      "/imagenes/proyecto2-2.png",
+      "/imagenes/proyecto2-3.png",
+    ],
+    tags: ["Python", "Tkinter", "SQLite"],
+    title: "Sistema de Stock y Ventas — MundoAnimal",
+    desc: "Solución completa para control de stock, ventas a clientes específicos y gestión de envíos a domicilio. Reemplazó el seguimiento manual de inventario.",
+    metrics: [
+      { value: "+300", label: "productos gestionados" },
+      { value: "3x", label: "más rápido que el proceso anterior" },
+      { value: "100%", label: "envíos digitalizados" },
+    ],
+  },
+  {
+    images: [
+      "/imagenes/proyecto3-1.png",
+      "/imagenes/proyecto3-2.png",
+      "/imagenes/proyecto3-3.png",
+    ],
+    tags: ["Python", "SQLite", "PySide6"],
+    title: "Sistema de Ventas y Stock — MELED",
+    desc: "Aplicación de gestión de stock, pedidos al mayor y facturación detallada con control de totales vendidos y comprados en tiempo real.",
+    metrics: [
+      { value: "100%", label: "facturación automatizada" },
+      { value: "−80%", label: "tiempo en control de stock" },
+      { value: "+400", label: "Productos cargados" },
+    ],
+  },
+];
+---
+<section id="projects">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="section-label reveal">Proyectos</p>
+    <h2 class="section-title reveal">Lo que he construido</h2>
+    <p class="section-sub reveal">Proyectos reales de mis repositorios — código que resuelve problemas concretos.</p>
+
+    <div class="projects-grid">
+      {projects.map((project) => (
+        <div class="project-card reveal">
+          <div class="carousel" data-carousel>
+            <div class="carousel-track">
+              {project.images.map((img, i) => (
+                <div class="carousel-slide">
+                  <img
+                    src={img}
+                    alt={`${project.title} - captura ${i + 1}`}
+                    data-lightbox={img}
+                    style="cursor: zoom-in;"
+                  />
+                  <span class="slide-num">{i + 1} / {project.images.length}</span>
+                </div>
+              ))}
+            </div>
+            <button class="carousel-btn prev">&#8592;</button>
+            <button class="carousel-btn next">&#8594;</button>
+            <div class="carousel-dots">
+              {project.images.map((_, i) => (
+                <div class={`carousel-dot${i === 0 ? " active" : ""}`}></div>
+              ))}
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              {project.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+            <div class="project-title">{project.title}</div>
+            <div class="project-desc">{project.desc}</div>
+
+            {project.metrics && (
+              <div class="project-metrics">
+                {project.metrics.map((m) => (
+                  <div class="metric">
+                    <span class="metric-value">{m.value}</span>
+                    <span class="metric-label">{m.label}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div class="project-links">
+              {project.github && (
+                <a href={project.github} class="project-link" target="_blank" rel="noopener">
+                  <i class="fa-brands fa-github"></i>
+                  GitHub
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
