@@ -7,6 +7,28 @@ import Projects from '../components/Projects.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+
+const canonicalURL = new URL(Astro.url.pathname, "https://portafolio-matias-azcurra.vercel.app");
+const ogImageURL = new URL("/preview.png", "https://portafolio-matias-azcurra.vercel.app");
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Matias Azcurra",
+  jobTitle: "Software Engineer",
+  description: "Portfolio de Matias Azcurra, Software Engineer especializado en Python, desarrollo web y automatización.",
+  url: "https://portafolio-matias-azcurra.vercel.app",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Mendoza",
+    addressCountry: "AR",
+  },
+  knowsAbout: ["Python", "JavaScript", "React", "Astro", "MySQL", "PostgreSQL", "Web Development"],
+  sameAs: [
+    "https://www.linkedin.com/in/matias-azcurra-74838130a",
+    "https://github.com/matiiiazc",
+  ],
+};
 ---
 <!DOCTYPE html>
 <html lang="es">
@@ -15,10 +37,35 @@ import '../styles/global.css';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Matias Azcurra | Software Engineer</title>
   <meta name="description" content="Portfolio de Matias Azcurra, Software Engineer especializado en Python, desarrollo web y automatización. Mendoza, Argentina." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Matias Azcurra" />
+  <meta name="keywords" content="Matias Azcurra, Software Engineer, Python, Desarrollo Web, React, Astro, Mendoza, Argentina" />
+
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
   <meta property="og:title" content="Matias Azcurra | Software Engineer" />
   <meta property="og:description" content="Desarrollo software y soluciones a medida que resuelven problemas reales." />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="Matias Azcurra Portfolio" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Matias Azcurra | Software Engineer" />
+  <meta name="twitter:description" content="Desarrollo software y soluciones a medida que resuelven problemas reales." />
+  <meta name="twitter:image" content={ogImageURL} />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />

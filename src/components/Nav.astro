@@ -8,4 +8,45 @@
     <li><a href="#projects">Proyectos</a></li>
     <li><a href="#contact">Contacto</a></li>
   </ul>
+  <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+    <span class="bar" id="bar1"></span>
+    <span class="bar" id="bar2"></span>
+    <span class="bar" id="bar3"></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#home" class="mobile-link">Inicio</a>
+  <a href="#skills" class="mobile-link">Skills</a>
+  <a href="#projects" class="mobile-link">Proyectos</a>
+  <a href="#contact" class="mobile-link">Contacto</a>
+</div>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const bar1 = document.getElementById("bar1");
+  const bar2 = document.getElementById("bar2");
+  const bar3 = document.getElementById("bar3");
+  let open = false;
+
+  toggle?.addEventListener("click", () => {
+    open = !open;
+    if (menu) {
+      menu.style.maxHeight = open ? menu.scrollHeight + "px" : "0px";
+    }
+    bar1?.classList.toggle("active", open);
+    bar2?.classList.toggle("active", open);
+    bar3?.classList.toggle("active", open);
+  });
+
+  document.querySelectorAll(".mobile-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      open = false;
+      if (menu) menu.style.maxHeight = "0px";
+      bar1?.classList.remove("active");
+      bar2?.classList.remove("active");
+      bar3?.classList.remove("active");
+    });
+  });
+</script>
