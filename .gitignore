@@ -22,3 +22,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# embedded portfolio demos and local package cache
+/public/demos/
+/.pnpm-store/
+/apps/*/node_modules/
+pnpm-lock.original.yaml
+
