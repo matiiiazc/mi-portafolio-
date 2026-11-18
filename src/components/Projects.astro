@@ -4,8 +4,8 @@ const projects = [
     images: ["/imagenes/proyecto1-1.png", "/imagenes/proyecto1-2.png", "/imagenes/proyecto1-3.png"],
     tags: ["Python", "MySQL", "PySide6"], title: "Aplicación Intermedios",
     desc: "Sistema de gestión integral para una empresa: control de pagos a empleados, gastos de materiales y administración de clientes y proveedores.",
-    metrics: [{ value: "3", label: "módulos integrados" }, { value: "100%", label: "procesos digitalizados" }, { value: "0", label: "planillas de Excel" }],
-    github: "https://github.com/matiiiazc/App_Gestion_Intermedios.git",
+    metrics: [{ value: "8", label: "módulos integrados" }, { value: "100%", label: "procesos digitalizados" }, { value: "0", label: "planillas de Excel" }],
+    github: "https://github.com/matiiiazc/App_Gestion_Intermedios.git", href: "/demos/intermedios/", cover: "intermedios",
   },
   {
     images: ["/imagenes/proyecto2-1.png", "/imagenes/proyecto2-2.png", "/imagenes/proyecto2-3.png"],
@@ -18,6 +18,7 @@ const projects = [
     tags: ["Python", "SQLite", "PySide6"], title: "Sistema de Ventas y Stock — MELED",
     desc: "Aplicación de gestión de stock, pedidos al mayor y facturación detallada con control de totales vendidos y comprados en tiempo real.",
     metrics: [{ value: "100%", label: "facturación automatizada" }, { value: "−80%", label: "tiempo en control de stock" }, { value: "+400", label: "productos cargados" }],
+    href: "/demos/meled/", cover: "meled",
   },
   { tags: ["JavaScript", "Astro", "Demo interactiva"], title: "Lattecito — Gestión de cafetería", desc: "Panel de operación para comandas, caja y productos. Demo navegable inspirada en el sistema de gestión del café.", href: "/proyectos/latecito", cover: "coffee" },
   { tags: ["React", "TypeScript", "Gestión de RR. HH."], title: "People Operations — HR platform", desc: "Sistema interno para administrar contractors, pagos, ausencias, candidatos, pruebas y contrataciones.", href: "/proyectos/recursos-humanos", cover: "people" },
@@ -35,8 +36,8 @@ const projects = [
             <a class={`project-cover project-cover-${project.cover}`} href={project.href} aria-label={`Abrir demo de ${project.title}`}>
               <span class="cover-orbit cover-orbit-one"></span><span class="cover-orbit cover-orbit-two"></span>
               <span class="cover-kicker">DEMO INTERACTIVA</span>
-              <strong>{project.cover === "coffee" ? "LATTECITO" : "PEOPLE / OPS"}</strong>
-              <span class="cover-caption">{project.cover === "coffee" ? "Café · comandas · caja" : "People operations platform"}</span>
+              <strong>{project.cover === "coffee" ? "LATTECITO" : project.cover === "people" ? "PEOPLE / OPS" : project.cover === "intermedios" ? "INTERMEDIOS" : "MELED"}</strong>
+              <span class="cover-caption">{project.cover === "coffee" ? "Café · comandas · caja" : project.cover === "people" ? "People operations platform" : project.cover === "intermedios" ? "Clientes · pedidos · pagos" : "Stock · ventas · presupuestos"}</span>
               <span class="cover-open">↗</span>
             </a>
           ) : (
@@ -49,8 +50,9 @@ const projects = [
             <h3 class="project-title">{project.title}</h3><p class="project-desc">{project.desc}</p>
             {project.metrics && <div class="project-metrics">{project.metrics.map((m) => <div class="metric"><span class="metric-value">{m.value}</span><span class="metric-label">{m.label}</span></div>)}</div>}
             <div class="project-links">
-              {project.href && <a href={project.href} class="project-link project-demo-link"><i class="fa-solid fa-arrow-up-right-from-square"></i>Abrir demo</a>}
+              {project.github && project.href && <a href={project.href} class="project-link project-demo-link"><i class="fa-solid fa-arrow-up-right-from-square"></i>Abrir demo</a>}
               {project.github && <a href={project.github} class="project-link" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>}
+              {project.href && !project.github && <a href={project.href} class="project-link project-demo-link"><i class="fa-solid fa-arrow-up-right-from-square"></i>Abrir demo</a>}
             </div>
           </div>
         </article>
