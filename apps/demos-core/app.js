@@ -16,7 +16,6 @@ function rows(name){return store[name]||c.data[name]||[]}
 function save(){localStorage.setItem('portfolio-demo-'+kind,JSON.stringify(store))}
 function money(n){return new Intl.NumberFormat('es-AR',{style:'currency',currency:'ARS',maximumFractionDigits:0}).format(n||0)}
 
-// ── RENDER ──
 function render(){
  const isHome=page==='Resumen'; let data=rows(page), headers=c.heads[page]||[];
  const nav=kind==='meled'?`<nav class="meled-tabs">${c.nav.map(n=>`<button class="meled-tab ${page===n?'active':''}" data-page="${esc(n)}">${esc(n)}</button>`).join('')}</nav>`:`<aside class="sidebar"><div class="brand"><b>${c.brand}</b><small>${c.sub}</small></div><nav>${c.nav.map((n,i)=>`<button class="nav ${page===n?'active':''}" data-page="${esc(n)}"><span>${['◈','▦','▣','◷','▧','◫','↗','◉','☷'][i%9]}</span>${esc(n)}</button>`).join('')}</nav><div class="side-foot"><span class="avatar">MC</span><div><b>María C.</b><small>Administración</small></div><span class="muted">⌄</span></div></aside>`;
